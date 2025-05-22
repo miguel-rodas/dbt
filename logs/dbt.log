@@ -1,0 +1,61 @@
+
+
+============================== 2025-05-22 01:41:17.888926 | 5b1c9eda-d84a-4805-9f4e-a0a19e3fb3bb ==============================
+[0m01:41:17.888926 [info ] [MainThread]: Running with dbt=1.4.0
+[0m01:41:17.889769 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 120, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/tripclocks/.dbt', 'send_anonymous_usage_stats': False, 'quiet': False, 'no_print': False, 'cache_selected_only': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m01:41:17.889855 [debug] [MainThread]: Tracking: do not track
+[0m01:41:34.957881 [debug] [MainThread]: Flushing usage events
+[0m01:41:34.959905 [error] [MainThread]: Encountered an error:
+
+[0m01:41:34.963327 [error] [MainThread]: Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/dbt/main.py", line 135, in main
+    results, succeeded = handle_and_check(args)
+                         ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/dbt/main.py", line 198, in handle_and_check
+    task, res = run_from_args(parsed)
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/dbt/main.py", line 245, in run_from_args
+    results = task.run()
+              ^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/dbt/task/init.py", line 286, in run
+    project_name = self.get_valid_project_name()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/dbt/task/init.py", line 243, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/click/termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/click/termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+
+
+============================== 20:42:54.170343 | 106a5a8a-d156-431e-88ac-2a824db93f84 ==============================
+[0m20:42:54.170343 [info ] [MainThread]: Running with dbt=1.9.4
+[0m20:42:54.174291 [debug] [MainThread]: running dbt with arguments {'printer_width': '120', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/Users/tripclocks/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt init', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'False'}
+[0m20:42:54.174669 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+
+User config should be moved from the 'config' key in profiles.yml to the 'flags' key in dbt_project.yml.
+[0m20:43:14.806139 [debug] [MainThread]: Starter project path: /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/dbt/include/starter_project
+[0m20:43:14.816257 [info ] [MainThread]: 
+Your new dbt project "oss_data" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m20:43:14.816691 [info ] [MainThread]: Setting up your profile.
+[0m20:43:28.601485 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 34.494595, "process_in_blocks": "0", "process_kernel_time": 0.274886, "process_mem_max_rss": "94814208", "process_out_blocks": "0", "process_user_time": 0.870309}
+[0m20:43:28.602378 [debug] [MainThread]: Command `dbt init` succeeded at 20:43:28.602246 after 34.50 seconds
+[0m20:43:28.602770 [debug] [MainThread]: Flushing usage events

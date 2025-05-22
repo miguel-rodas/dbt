@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: lakehouse
+    database: lakehouse
+    schema: bronze
+    tables:
+      - name: titanic
+        description: |
+          The Titanic dataset contains information about the passengers on the Titanic, including their survival status, age, class, and other attributes.

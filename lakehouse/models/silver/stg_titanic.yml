@@ -1,0 +1,79 @@
+version: 2
+
+models:
+  - name: stg_titanic
+    description: |-
+      The staging model for the Titanic dataset. This model cleans and prepares the data for further analysis.
+    columns:
+      - name: id
+        description: Unique identifier for each row, sourced from the _airbyte_raw_id column in the source data.
+        data_type: varchar
+        tests: 
+          - not_null
+          - unique
+      - name: passenger_id
+        description: Unique identifier for each passenger, sourced from the passengerid column in the source data. This is cast to an integer data type.
+        data_type: integer
+        tests: 
+          - not_null
+          - unique
+      - name: age
+        description: Age of the passenger. This is sourced from the age column in the source data and is cast to an integer data type.
+        data_type: integer
+      - name: sex
+        description: The gender of the passenger. It is a string value that can be either 'male' or 'female'.
+        data_type: varchar
+        tests:
+        - accepted_values:
+            values: ['male', 'female']
+      - name: fare
+        description: The fare paid by the passenger for the journey. It is a numeric value.
+        data_type: double
+      - name: name
+        description: The full name of the passenger. It is a string value.
+        data_type: varchar
+      - name: cabin
+        description: The cabin number where the passenger was staying.
+        data_type: varchar
+      - name: parents_children_aboard
+        description: The number of parents or children the passenger had aboard the Titanic.
+        data_type: integer
+      - name: siblings_spouses_aboard
+        description: Boolean value indicating whether the passenger had any siblings or spouses aboard the Titanic.
+        data_type: boolean
+        tests: 
+          - not_null
+      - name: ticket_class
+        description: The ticket class represents the class of the ticket purchased by the passenger. It is an integer value where 1 represents first class, 2 represents second class, and 3 represents third class.
+        data_type: integer
+        tests: 
+          - not_null
+      - name: ticket
+        description: The ticket field represents the ticket number of the passenger. It is a string value that uniquely identifies each ticket.
+        data_type: varchar
+      - name: embarked
+        description: The embarked field represents the port where the passenger embarked the Titanic. It is a string value where 'S' represents Southampton, 'C' represents Cherbourg, and 'Q' represents Queenstown.
+        data_type: varchar
+      - name: embarked_port
+        description: "The port where the passenger embarked. It is derived from the 'embarked' column and has the following possible values: 'Southampton', 'Cherbourg', 'Queenstown', 'Unknown'."
+        data_type: varchar
+        tests: 
+          - accepted_values:
+              values: ['Cherbourg', 'Queenstown', 'Southampton', 'Unknown']
+      - name: survived
+        description: A boolean value indicating whether the passenger survived or not. It is derived from the 'survived' column where a value greater than 0 is considered as survived.
+        data_type: boolean
+        tests: 
+          - not_null
+      - name: synced_at
+        description: The timestamp when the data was synced. It is derived from the '_airbyte_extracted_at' column and is converted from UNIX time to a standard timestamp.
+        data_type: timestamp(6) with time zone
+      - name: synced_by
+        description: This column represents the source from which the data was synced. In this case, the data was synced by 'airbyte'.
+        data_type: varchar
+      - name: transformed_at
+        description: This column represents the timestamp at which the data was transformed. The transformation is done by dbt and the timestamp is automatically generated at the time of transformation.
+        data_type: timestamp(6) with time zone
+      - name: transformed_by
+        description: This column represents the entity that performed the transformation on the data. In this case, the transformation was done by 'dbt'.
+        data_type: varchar

@@ -1,0 +1,11 @@
+lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: trino
+      method: none
+      user: admin
+      host: localhost
+      port: 30005
+      schema: silver
+      database: lakehouse
